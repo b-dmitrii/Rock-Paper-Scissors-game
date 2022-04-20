@@ -8,11 +8,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { gameResult } from "../store/gameSlice";
 
 const pulse = keyframes`
-  0%{
+  0%{    
     box-shadow: 0 0 40px #050f6d;
   }
 
-  25% {
+  25% {    
     box-shadow: 0 0 40px #325cf1;
   }
 
@@ -34,44 +34,78 @@ const animation = () => css`
 `;
 
 const ResultContainer = styled(Container)`
-  justify-content: space-between;
+  flex-direction: column;
+
   align-items: center;
+  height: 80vh;
+
+  @media (min-width: 767px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 80vh;
+  }
 `;
 
 const MyGesture = styled.div`
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  border: 30px solid #3750da;
+  border: 20px solid #3750da;
   background-color: #c9c9c9;
   display: flex;
   align-items: center;
   justify-content: center;
   animation: ${(props) =>
     props.result === RESULT_MESSAGE.win ? animation : ""};
+
+  @media (min-width: 767px) {
+    width: 200px;
+    height: 200px;
+    border: 30px solid #3750da;
+  }
+
+  & > img {
+    width: 49px;
+    height: 59px;
+  }
 `;
 
 const EnemyGesture = styled(MyGesture)`
-  border: 30px solid #e01e18e5;
+  border: 20px solid #e01e18e5;
+
+  @media (min-width: 767px) {
+    border: 30px solid #e01e18e5;
+  }
 `;
 
 const ResultMessage = styled.p`
-  font-size: 50px;
+  font-size: 25px;
   color: #fff;
   text-transform: uppercase;
   text-align: center;
+
+  @media (min-width: 767px) {
+    font-size: 50px;
+  }
 `;
 
 const Button = styled.button`
-  padding: 1rem 5rem;
+  padding: 0.5rem 3rem;
   background-color: #fff;
   border: none;
   border-radius: 30px;
   font-size: 20px;
   text-transform: uppercase;
+  margin-bottom: 20px;
 
   &:hover {
     background-color: #c9c9c9;
+  }
+
+  @media (min-width: 767px) {
+    padding: 1rem 5rem;
+    font-size: 20px;
   }
 `;
 

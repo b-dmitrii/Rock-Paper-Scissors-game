@@ -27,7 +27,7 @@ const gameSlice = createSlice({
     },
 
     gameResult(state) {
-      switch (state.enemyGesture.name + state.selectedGesture.name) {
+      switch (state.selectedGesture.name + state.enemyGesture.name) {
         case "paperrock":
         case "rockscissors":
         case "scissorspaper":
